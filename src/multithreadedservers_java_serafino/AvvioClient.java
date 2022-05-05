@@ -23,8 +23,7 @@ public class AvvioClient {
         try {
             // TODO code application logic here
             Client cli = new Client(InetAddress.getLocalHost(),2000);
-            System.out.println(cli.leggi());
-            cli.scrivi("ciao");
+           
         } catch (UnknownHostException ex) {
             Logger.getLogger(AvvioClient.class.getName()).log(Level.SEVERE, null, ex);
         }

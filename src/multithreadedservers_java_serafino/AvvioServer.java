@@ -18,7 +18,7 @@ public class AvvioServer {
         // TODO code application logic here
         Server srv = new Server(2000);
         srv.ascolto();
-        srv.scrivi("Benvenuto client");
+        //srv.scrivi("Benvenuto client");
     }
     
 }

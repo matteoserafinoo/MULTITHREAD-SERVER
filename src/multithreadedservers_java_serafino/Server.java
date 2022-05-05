@@ -30,7 +30,7 @@ public class Server {
                 ss = new ServerSocket(porta);
                 System.out.println("Server avviato");
                 ss.setSoTimeout(3000);
-             
+                
             } catch (IOException ex) {
                 Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -42,8 +42,8 @@ public class Server {
             try {
                 so = ss.accept();
                 System.out.println("Connessione stabilita");
-                br = new BufferedReader(new InputStreamReader(so.getInputStream()));
-                bw = new BufferedWriter(new OutputStreamWriter(so.getOutputStream()));
+                ClientHandler clientSock
+                    = new ClientHandler(client);
             } catch (IOException ex) {
                 Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             }
