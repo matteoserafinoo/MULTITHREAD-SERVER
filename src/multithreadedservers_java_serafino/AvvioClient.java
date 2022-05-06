@@ -20,13 +20,8 @@ public class AvvioClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            // TODO code application logic here
-            Client cli = new Client(InetAddress.getLocalHost(),2000);
-           
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(AvvioClient.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        // TODO code application logic here
+        Client cli = new Client("127.0.0.1",2000);
     }
     
 }

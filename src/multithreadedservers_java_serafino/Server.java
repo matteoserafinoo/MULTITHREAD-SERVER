@@ -29,7 +29,7 @@ public class Server {
             try {
                 ss = new ServerSocket(porta);
                 System.out.println("Server avviato");
-                ss.setSoTimeout(3000);
+                
                 
             } catch (IOException ex) {
                 Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,7 +43,8 @@ public class Server {
                 so = ss.accept();
                 System.out.println("Connessione stabilita");
                 ClientHandler clientSock
-                    = new ClientHandler(client);
+                    = new ClientHandler(so);
+                new Thread(clientSock).start();
             } catch (IOException ex) {
                 Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             }

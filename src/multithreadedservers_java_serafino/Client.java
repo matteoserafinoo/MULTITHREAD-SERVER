@@ -23,13 +23,13 @@ import java.util.logging.Logger;
  */
 public class Client {
     
-    Socket so;
+    Socket socket;
     BufferedWriter bw;
     BufferedReader br;
-    public Client(InetAddress ip, int porta) {
+    public Client(String ip, int porta) {
         
         try {
-            Socket socket = new Socket("localhost", 1234);
+            socket = new Socket(ip, porta);
             PrintWriter out = new PrintWriter(
                 socket.getOutputStream(), true);
   
@@ -41,7 +41,7 @@ public class Client {
             // object of scanner class
             Scanner sc = new Scanner(System.in);
             String line = null;
-            bw = new BufferedWriter(new OutputStreamWriter(so.getOutputStream()));
+            bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             while (!"exit".equalsIgnoreCase(line)) {
                 
                 // reading from user
@@ -52,12 +52,13 @@ public class Client {
                 out.flush();
   
                 // displaying server reply
-                System.out.println("Server replied "
+                System.out.println("Server ha risposto: "
                                    + in.readLine());
             }
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     
